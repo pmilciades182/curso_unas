@@ -845,7 +845,11 @@
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        const msg = errData.error || errData.detail || `Error ${res.status}`;
+        throw new Error(msg);
+      }
 
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('successEmail').textContent = payload.email;
@@ -853,7 +857,7 @@
 
     } catch (err) {
       console.error(err);
-      showToast('Hubo un error al enviar. Por favor intentá de nuevo.', 'error');
+      showToast(`Error al enviar: ${err.message}`, 'error');
       btn.disabled          = false;
       spinner.style.display = 'none';
       btnText.textContent   = '💌 Enviar Inscripción';

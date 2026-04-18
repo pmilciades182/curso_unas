@@ -3,11 +3,28 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
+  // Verificar API key al inicio para detectar el problema rápido
+  if (!process.env.BREVO_API_KEY) {
+    console.error('BREVO_API_KEY no está configurada en las variables de entorno de Netlify.');
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Configuración incompleta: falta BREVO_API_KEY en Netlify.' }),
+    };
+  }
+
   try {
     const {
       nombre, email, telefono, dni,
       ciudad, fuente, nivel, comprobante, comprobanteName,
     } = JSON.parse(event.body);
+
+    // Validar campos mínimos obligatorios en el servidor
+    if (!nombre || !email || !telefono || !dni) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Faltan campos obligatorios.' }),
+      };
+    }
 
     const htmlContent = `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
@@ -18,7 +35,7 @@ exports.handler = async (event) => {
           <h2 style="color:#1a1a2e;margin-bottom:20px;">Datos de la alumna</h2>
           <table style="width:100%;border-collapse:collapse;">
             <tr style="border-bottom:1px solid #f3f4f6;">
-              <td style="padding:10px 0;color:#6b7280;width:150px;font-size:14px;">Nombre completo</td>
+              <td style="padding:10px 0;color:#6b7280;width:160px;font-size:14px;">Nombre completo</td>
               <td style="padding:10px 0;font-weight:600;">${nombre}</td>
             </tr>
             <tr style="border-bottom:1px solid #f3f4f6;">
@@ -26,15 +43,15 @@ exports.handler = async (event) => {
               <td style="padding:10px 0;font-weight:600;">${email}</td>
             </tr>
             <tr style="border-bottom:1px solid #f3f4f6;">
-              <td style="padding:10px 0;color:#6b7280;font-size:14px;">Teléfono</td>
+              <td style="padding:10px 0;color:#6b7280;font-size:14px;">Celular / WhatsApp</td>
               <td style="padding:10px 0;font-weight:600;">${telefono}</td>
             </tr>
             <tr style="border-bottom:1px solid #f3f4f6;">
-              <td style="padding:10px 0;color:#6b7280;font-size:14px;">DNI</td>
+              <td style="padding:10px 0;color:#6b7280;font-size:14px;">Cédula de Identidad</td>
               <td style="padding:10px 0;font-weight:600;">${dni}</td>
             </tr>
             <tr style="border-bottom:1px solid #f3f4f6;">
-              <td style="padding:10px 0;color:#6b7280;font-size:14px;">Ciudad</td>
+              <td style="padding:10px 0;color:#6b7280;font-size:14px;">Ciudad / Departamento</td>
               <td style="padding:10px 0;font-weight:600;">${ciudad || '—'}</td>
             </tr>
             <tr style="border-bottom:1px solid #f3f4f6;">
@@ -50,7 +67,7 @@ exports.handler = async (event) => {
             📎 El comprobante de transferencia se adjunta en este correo.
           </div>
           <p style="margin-top:20px;font-size:12px;color:#9ca3af;">
-            Este correo fue generado automáticamente desde el formulario de inscripción del curso online de uñas.
+            Generado automáticamente desde el formulario de inscripción · Curso Online de Uñas Paraguay
           </p>
         </div>
       </div>
@@ -81,12 +98,17 @@ exports.handler = async (event) => {
       body: JSON.stringify(payload),
     });
 
+    const responseText = await res.text();
+
     if (!res.ok) {
-      const errText = await res.text();
-      console.error('Brevo error:', errText);
+      console.error('Brevo respondió con error:', res.status, responseText);
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: 'Error al enviar email', detail: errText }),
+        body: JSON.stringify({
+          error: 'Brevo rechazó el email.',
+          status: res.status,
+          detail: responseText,
+        }),
       };
     }
 
@@ -95,8 +117,12 @@ exports.handler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ success: true }),
     };
+
   } catch (err) {
-    console.error('Function error:', err);
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    console.error('Error inesperado en la función:', err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 };

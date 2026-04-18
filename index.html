@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscripción · Curso Online de Uñas Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose: #e91e8c;
+      --rose-dark: #be185d;
+      --rose-light: #f472b6;
+      --rose-pale: #fce7f3;
+      --gold: #c9a96e;
+      --dark: #1a1a2e;
+      --gray: #6b7280;
+      --gray-light: #f9fafb;
+      --white: #ffffff;
+      --error: #ef4444;
+      --success: #10b981;
+      --border: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,.08), 0 2px 4px -2px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,.1), 0 4px 10px -4px rgba(0,0,0,.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #fce7f3 0%, #fff5fb 40%, #f5f3ff 100%);
+      min-height: 100vh;
+      color: var(--dark);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #6d1237 0%, #9d174d 35%, #be185d 65%, #e91e8c 100%);
+      color: white;
+      padding: 52px 24px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,.07) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-decor {
+      position: absolute;
+      font-size: 9rem;
+      opacity: .06;
+      user-select: none;
+      pointer-events: none;
+    }
+    .hero-decor.left  { left: -10px; top: -10px; transform: rotate(-15deg); }
+    .hero-decor.right { right: -10px; bottom: -20px; transform: rotate(20deg); }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50px;
+      padding: 6px 22px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .hero p {
+      font-size: 1rem;
+      opacity: .88;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    /* ── Form card ── */
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.12);
+      border: 1px solid rgba(233,30,140,.08);
+    }
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      font-size: .85rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: .01em;
+    }
+    label .req { color: var(--rose); margin-left: 2px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      color: var(--dark);
+      background: #fafafa;
+      transition: border-color .18s, box-shadow .18s, background .18s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      min-height: 48px;
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-color: #fafafa;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    input:focus, select:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 4px rgba(233,30,140,.1);
+      background: white;
+    }
+    input::placeholder { color: #b0b7c3; }
+    input.is-error, select.is-error {
+      border-color: var(--error);
+      background: #fff8f8;
+    }
+
+    .error-msg {
+      font-size: .78rem;
+      color: var(--error);
+      margin-top: 5px;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+
+    /* ── File upload ── */
+    .file-upload-wrap { position: relative; }
+    .drop-zone {
+      border: 2px dashed #d1d5db;
+      border-radius: 14px;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      background: #fafafa;
+      position: relative;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--rose);
+      background: var(--rose-pale);
+    }
+    .drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .drop-zone-icon { font-size: 2.4rem; margin-bottom: 8px; line-height: 1; }
+    .drop-zone-text { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+    .drop-zone-text strong { color: var(--rose); }
+    .drop-zone-text small { font-size: .76rem; display: block; margin-top: 2px; }
+
+    .file-preview {
+      display: none;
+      margin-top: 12px;
+      align-items: center;
+      gap: 12px;
+      background: var(--rose-pale);
+      border: 1px solid #f9a8d4;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .file-preview.visible { display: flex; }
+    .file-preview img {
+      height: 54px;
+      width: 54px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--rose-light);
+      flex-shrink: 0;
+    }
+    .file-preview-info { flex: 1; min-width: 0; }
+    .file-preview-name {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-preview-size { font-size: .75rem; color: var(--gray); margin-top: 2px; }
+    .file-remove {
+      background: white;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: .85rem;
+      color: var(--gray);
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all .15s;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+    .file-remove:hover { border-color: var(--error); color: var(--error); background: #fff8f8; }
+
+    /* ── Transfer box ── */
+    .transfer-box {
+      background: linear-gradient(135deg, #fff5fb, #fce7f3);
+      border: 2px solid #f9a8d4;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .transfer-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--rose-dark);
+      margin-bottom: 16px;
+    }
+    .transfer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .transfer-item {
+      background: white;
+      border-radius: 10px;
+      padding: 12px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .transfer-item .label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .transfer-item .value {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .transfer-note {
+      margin-top: 14px;
+      background: white;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 11px 16px;
+      font-size: .82rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    @media (max-width: 480px) {
+      .transfer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Checkboxes ── */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .88rem;
+      font-weight: 400;
+      color: var(--dark);
+      cursor: pointer;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fafafa;
+      transition: border-color .15s, background .15s;
+      user-select: none;
+      margin-bottom: 0;
+    }
+    .check-label:hover { border-color: var(--rose-light); background: var(--rose-pale); }
+    .check-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      min-height: unset;
+      accent-color: var(--rose);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .check-label:has(input:checked) {
+      border-color: var(--rose);
+      background: var(--rose-pale);
+      font-weight: 600;
+    }
+    @media (max-width: 400px) { .checkbox-group { grid-template-columns: 1fr; } }
+
+    /* ── Radio buttons ── */
+    .radio-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .radio-label {
+      cursor: pointer;
+      display: block;
+      margin-bottom: 0;
+    }
+    .radio-label input[type="radio"] { display: none; }
+    .radio-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+      padding: 14px 10px;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      background: #fafafa;
+      transition: border-color .18s, background .18s, box-shadow .18s;
+      cursor: pointer;
+    }
+    .radio-box:hover { border-color: var(--rose-light); background: var(--rose-pale); }
+    .radio-label input:checked + .radio-box {
+      border-color: var(--rose);
+      background: var(--rose-pale);
+      box-shadow: 0 0 0 3px rgba(233,30,140,.1);
+    }
+    .radio-icon { font-size: 1.6rem; line-height: 1; }
+    .radio-text { font-size: .88rem; font-weight: 700; color: var(--dark); }
+    .radio-desc { font-size: .74rem; color: var(--gray); }
+    @media (max-width: 480px) {
+      .radio-group { grid-template-columns: 1fr; gap: 8px; }
+      .radio-box { flex-direction: row; text-align: left; justify-content: flex-start; gap: 10px; padding: 12px 14px; }
+      .radio-desc { display: none; }
+    }
+
+    /* ── Submit button ── */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s, opacity .18s;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: .02em;
+      min-height: 54px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(190,24,93,.45);
+    }
+    .btn-submit:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
+    .btn-submit:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,.35);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin .65s linear infinite;
+      display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Success screen ── */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .success-screen.visible { display: block; }
+    .success-icon { font-size: 5rem; margin-bottom: 20px; animation: bounceIn .5s ease; }
+    @keyframes bounceIn {
+      0%   { transform: scale(.4); opacity: 0; }
+      60%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .success-screen h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--success);
+      margin-bottom: 14px;
+    }
+    .success-screen p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: .95rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .success-screen p strong { color: var(--dark); }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      top: 22px;
+      right: 22px;
+      padding: 15px 22px;
+      border-radius: 12px;
+      font-size: .88rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      transform: translateX(calc(100% + 30px));
+      transition: transform .32s cubic-bezier(.34,1.56,.64,1);
+      z-index: 9999;
+      max-width: 320px;
+      line-height: 1.4;
+    }
+    .toast.show { transform: translateX(0); }
+    .toast.success { background: var(--success); color: white; }
+    .toast.error   { background: var(--error);   color: white; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: .78rem;
+      color: var(--gray);
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 40px; }
+      .hero h1 { font-size: 1.65rem; }
+      .hero p { font-size: .88rem; }
+      .hero-badge { font-size: .7rem; padding: 5px 14px; }
+      .container { padding: 24px 14px 48px; }
+      .form-card { padding: 24px 18px; border-radius: 16px; }
+      .form-title { font-size: 1.2rem; }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select { font-size: 1rem; padding: 13px 14px; }
+      .drop-zone { padding: 24px 14px; }
+      .btn-submit { font-size: .95rem; min-height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<header class="hero">
+  <div class="hero-decor left">💅</div>
+  <div class="hero-decor right">✨</div>
+  <div class="hero-badge">✨ Inscripciones abiertas 2026</div>
+  <h1>Curso Online de<br />Uñas para Principiantes</h1>
+  <p>No es solo técnica, aprendés a entender lo que hacés.<br />Enseñanza personalizada desde cero, a tu ritmo. 🇵🇾</p>
+</header>
+
+<!-- ═══════════════════════ CONTENT ═══════════════════════ -->
+<main class="container">
+
+  <!-- Transfer data -->
+  <div class="transfer-box">
+    <h2>💳 Datos para la Transferencia</h2>
+    <div class="transfer-grid">
+      <div class="transfer-item">
+        <div class="label">Titular</div>
+        <div class="value">Melissa Britez</div>
+      </div>
+      <div class="transfer-item">
+        <div class="label">Entidad</div>
+        <div class="value">Ueno Bank</div>
+      </div>
+      <div class="transfer-item">
+        <div class="label">Número de Cuenta</div>
+        <div class="value">619275897</div>
+      </div>
+      <div class="transfer-item">
+        <div class="label">Alias C.I.</div>
+        <div class="value">3956555</div>
+      </div>
+    </div>
+    <div class="transfer-note">
+      ⚠️ <strong>Importante:</strong> Realizá la transferencia y luego completá el formulario adjuntando el comprobante de pago. Te enviaremos el acceso a los videos en un plazo de <strong>24 hs hábiles</strong>.
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-card">
+
+    <!-- Form content -->
+    <div id="formContent">
+      <h2 class="form-title">Formulario de Inscripción</h2>
+      <p class="form-subtitle">Completá todos los campos con tus datos. Los campos con <span style="color:var(--rose)">*</span> son obligatorios.</p>
+
+      <form id="enrollForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre completo <span class="req">*</span></label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: María García" autocomplete="name" />
+            <div class="error-msg" id="err-nombre">Por favor ingresá tu nombre completo.</div>
+          </div>
+          <div class="form-group">
+            <label for="dni">Cédula de Identidad <span class="req">*</span></label>
+            <input type="text" id="dni" name="dni" placeholder="Ej: 4.123.456" maxlength="10" inputmode="numeric" />
+            <div class="error-msg" id="err-dni">Ingresá una cédula válida (6-8 dígitos).</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" />
+            <div class="error-msg" id="err-email">Ingresá un email válido.</div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Celular / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 0981 123 456" autocomplete="tel" />
+            <div class="error-msg" id="err-telefono">Por favor ingresá tu número de celular.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ciudad">Ciudad / Departamento</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Asunción, Ciudad del Este" />
+          </div>
+          <div class="form-group">
+            <label>¿Cómo nos conociste?</label>
+            <div class="checkbox-group">
+              <label class="check-label"><input type="checkbox" name="fuente" value="Instagram" /> Instagram</label>
+              <label class="check-label"><input type="checkbox" name="fuente" value="Facebook" /> Facebook</label>
+              <label class="check-label"><input type="checkbox" name="fuente" value="TikTok" /> TikTok</label>
+              <label class="check-label"><input type="checkbox" name="fuente" value="Recomendación" /> Me lo recomendaron</label>
+              <label class="check-label"><input type="checkbox" name="fuente" value="Google" /> Google</label>
+              <label class="check-label"><input type="checkbox" name="fuente" value="Otro" /> Otro</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Nivel de experiencia <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="nivel" value="Principiante" />
+              <span class="radio-box">
+                <span class="radio-icon">🌱</span>
+                <span class="radio-text">Principiante</span>
+                <span class="radio-desc">Sin experiencia previa</span>
+              </span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="nivel" value="Intermedio" />
+              <span class="radio-box">
+                <span class="radio-icon">✨</span>
+                <span class="radio-text">Intermedio</span>
+                <span class="radio-desc">Conozco lo básico</span>
+              </span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="nivel" value="Avanzado" />
+              <span class="radio-box">
+                <span class="radio-icon">💅</span>
+                <span class="radio-text">Avanzado</span>
+                <span class="radio-desc">Busco perfeccionarme</span>
+              </span>
+            </label>
+          </div>
+          <div class="error-msg" id="err-nivel">Por favor seleccioná tu nivel de experiencia.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Comprobante de transferencia <span class="req">*</span></label>
+          <div class="file-upload-wrap">
+            <div class="drop-zone" id="dropZone">
+              <input type="file" id="comprobante" accept="image/*,.pdf" />
+              <span class="drop-zone-icon">📎</span>
+              <div class="drop-zone-text">
+                <strong>Hacé clic o arrastrá</strong> tu comprobante aquí<br />
+                <small>JPG, PNG, WEBP, PDF — máx. 4 MB</small>
+              </div>
+            </div>
+            <div class="file-preview" id="filePreview">
+              <img id="previewImg" src="" alt="" />
+              <div class="file-preview-info">
+                <div class="file-preview-name" id="previewName"></div>
+                <div class="file-preview-size" id="previewSize"></div>
+              </div>
+              <button type="button" class="file-remove" id="fileRemove" title="Quitar archivo">✕</button>
+            </div>
+          </div>
+          <div class="error-msg" id="err-comprobante">Por favor adjuntá el comprobante de transferencia.</div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <div class="spinner" id="spinner"></div>
+          <span id="btnText">💌 Enviar Inscripción</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Success screen -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <h2>¡Inscripción enviada!</h2>
+      <p>
+        Recibimos tu formulario y el comprobante de pago.<br /><br />
+        En las próximas <strong>24 hs hábiles</strong> te enviaremos el acceso a los videos a<br />
+        <strong id="successEmail" style="color:var(--rose)"></strong>.<br /><br />
+        ¡Bienvenida al curso! 💅✨
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Lorem Ipsum Nail Studio · Paraguay · Todos los derechos reservados
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── File upload ──────────────────────────────────────────
+  const dropZone    = document.getElementById('dropZone');
+  const fileInput   = document.getElementById('comprobante');
+  const filePreview = document.getElementById('filePreview');
+  const previewImg  = document.getElementById('previewImg');
+  const previewName = document.getElementById('previewName');
+  const previewSize = document.getElementById('previewSize');
+  const fileRemove  = document.getElementById('fileRemove');
+
+  let selectedFile = null;
+
+  fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+  dropZone.addEventListener('dragover',  (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', ()  => dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    handleFile(e.dataTransfer.files[0]);
+  });
+
+  fileRemove.addEventListener('click', () => {
+    selectedFile = null;
+    fileInput.value = '';
+    filePreview.classList.remove('visible');
+    previewImg.src = '';
+    clearFieldError('comprobante');
+  });
+
+  function handleFile(file) {
+    if (!file) return;
+
+    // Base64 aumenta el tamaño ~33%. Netlify Functions admite 6 MB de payload.
+    // Con otros campos en el JSON, el límite real del archivo es 4 MB.
+    const MAX_FILE_BYTES = 4 * 1024 * 1024;
+    const MAX_BASE64_BYTES = Math.ceil(MAX_FILE_BYTES * 1.37); // margen de seguridad
+
+    if (file.size > MAX_FILE_BYTES) {
+      showToast(`El archivo pesa ${formatBytes(file.size)}. El máximo permitido es 4 MB (el envío usa base64, que aumenta el tamaño ~37%).`, 'error');
+      fileInput.value = '';
+      return;
+    }
+
+    // Validar tipo de archivo
+    const allowed = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+    if (!allowed.includes(file.type)) {
+      showToast('Formato no permitido. Usá JPG, PNG, WEBP o PDF.', 'error');
+      fileInput.value = '';
+      return;
+    }
+    selectedFile = file;
+    previewName.textContent = file.name;
+    previewSize.textContent = formatBytes(file.size);
+
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (e) => { previewImg.src = e.target.result; previewImg.style.display = 'block'; };
+      reader.readAsDataURL(file);
+    } else {
+      previewImg.style.display = 'none';
+    }
+
+    filePreview.classList.add('visible');
+    clearFieldError('comprobante');
+  }
+
+  function formatBytes(bytes) {
+    if (bytes < 1024)       return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  }
+
+  // ── Validation ───────────────────────────────────────────
+  function validate() {
+    let ok = true;
+
+    const nombre = document.getElementById('nombre').value.trim();
+    if (nombre.length < 3) { setFieldError('nombre'); ok = false; } else clearFieldError('nombre');
+
+    const dni = document.getElementById('dni').value.replace(/\./g, '').trim();
+    if (!/^\d{6,8}$/.test(dni)) { setFieldError('dni'); ok = false; } else clearFieldError('dni');
+
+    const email = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError('email'); ok = false; } else clearFieldError('email');
+
+    const telefono = document.getElementById('telefono').value.trim();
+    if (telefono.replace(/\D/g, '').length < 8) { setFieldError('telefono'); ok = false; } else clearFieldError('telefono');
+
+    const nivel = document.querySelector('input[name="nivel"]:checked');
+    if (!nivel) { setFieldError('nivel'); ok = false; } else clearFieldError('nivel');
+
+    if (!selectedFile) { setFieldError('comprobante'); ok = false; } else clearFieldError('comprobante');
+
+    return ok;
+  }
+
+  function setFieldError(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('is-error');
+    const err = document.getElementById(`err-${id}`);
+    if (err) err.classList.add('visible');
+  }
+
+  function clearFieldError(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('is-error');
+    const err = document.getElementById(`err-${id}`);
+    if (err) err.classList.remove('visible');
+  }
+
+  // Clear errors on input
+  ['nombre', 'dni', 'email', 'telefono'].forEach((id) => {
+    document.getElementById(id).addEventListener('input', () => clearFieldError(id));
+  });
+
+  // ── Toast ────────────────────────────────────────────────
+  function showToast(msg, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.className = `toast ${type}`;
+    void toast.offsetWidth; // reflow
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4500);
+  }
+
+  // ── Submit ───────────────────────────────────────────────
+  document.getElementById('enrollForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) {
+      showToast('Revisá los campos marcados en rojo.', 'error');
+      return;
+    }
+
+    const btn     = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+    const btnText = document.getElementById('btnText');
+
+    btn.disabled          = true;
+    spinner.style.display = 'block';
+    btnText.textContent   = 'Enviando...';
+
+    try {
+      const base64 = await toBase64(selectedFile);
+      const base64Content = base64.split(',')[1];
+
+      const payload = {
+        nombre:          document.getElementById('nombre').value.trim(),
+        email:           document.getElementById('email').value.trim(),
+        telefono:        document.getElementById('telefono').value.trim(),
+        dni:             document.getElementById('dni').value.trim(),
+        ciudad:          document.getElementById('ciudad').value.trim(),
+        fuente:          [...document.querySelectorAll('input[name="fuente"]:checked')].map(c => c.value).join(', ') || '—',
+        nivel:           document.querySelector('input[name="nivel"]:checked')?.value || '—',
+        comprobante:     base64Content,
+        comprobanteName: selectedFile.name,
+      };
+
+      const res = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successEmail').textContent = payload.email;
+      document.getElementById('successScreen').classList.add('visible');
+
+    } catch (err) {
+      console.error(err);
+      showToast('Hubo un error al enviar. Por favor intentá de nuevo.', 'error');
+      btn.disabled          = false;
+      spinner.style.display = 'none';
+      btnText.textContent   = '💌 Enviar Inscripción';
+    }
+  });
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+</script>
+
+</body>
+</html>

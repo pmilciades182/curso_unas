@@ -1,0 +1,13 @@
+{
+  "name": "curso-unas-inscripcion",
+  "version": "1.0.0",
+  "description": "Formulario de inscripción para curso online de uñas",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
